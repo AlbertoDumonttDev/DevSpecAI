@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { requestGenerateSpec } from './services/api';
 import './App.css';
 
 function App() {
@@ -9,9 +10,10 @@ function App() {
   const [level, setLevel] = useState('');
   const [goal, setGoal] = useState('');
   const [spec, setSpec] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const generateSpec = () => {
-    
+  const generateSpec = async () => {
+
     if (!technologies) {
       setTechnologiesError(true);
       setSpec('');
@@ -34,9 +36,31 @@ function App() {
     setLevelError(false);
     setGoalError(false);
 
-    const text = `Com base nas tecnologias indicadas, no seu nível profissional atual e no seu objetivo de conquistar uma vaga como desenvolvedor Java Júnior em uma fintech, o projeto ideal foi estruturado para refletir os conhecimentos exigidos e te preparar com uma experiência prática relevante.\n\n\n\nNome do projeto: FinCache - Sistema de Cache para Transações Financeiras\n\nDescrição: Um sistema de cache para armazenar e gerenciar transações financeiras em tempo real, utilizando Java para a lógica de negócios e Redis para armazenamento de dados em cache.\n\nTecnologias: Java, Redis\n\nObjetivos técnicos:\n\n- Implementar uma API RESTful em Java para gerenciar transações financeiras\n\n- Integrar o Redis como cache para armazenar transações recentes e melhorar o desempenho\n\n- Desenvolver um mecanismo de expiração de cache para garantir a consistência dos dados\n\n- Implementar um sistema de logging para monitorar transações e erros\n\n- Criar testes unitários e de integração para garantir a qualidade do código`;
-    setSpec(text);
+    const levelMap = {
+      '1': 'Júnior',
+      '2': 'Pleno', 
+      '3': 'Sênior'
+    };
+
+    const requestData = {
+      'technologies': technologies,
+      'professionalLevel': levelMap[level],
+      'careerObjective': goal
+    };
+
+    try {
+      setLoading(true);
+      setSpec('');
+
+      const response = await requestGenerateSpec(requestData);
+      setSpec(response.spec);
+
+    } catch (error) {
+      setSpec('Desculpe, no momento o devSpecAI está indisponível.\nTente novamente em alguns minutos.');
+    } finally {
+      setLoading(false);
   };
+}
 
   return (
     <>
@@ -71,6 +95,12 @@ function App() {
         </select>
 
         <button onClick={generateSpec}>Gerar Especificações de projeto</button>
+
+        {loading && (
+          <div className="loading" style={{ marginTop: '10px' }}>
+            ⌛ Gerando especificação...
+          </div>
+        )}
 
         {spec && (
           <div className="result">

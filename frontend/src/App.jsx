@@ -34,7 +34,7 @@ function App() {
     setLevelError(false);
     setGoalError(false);
 
-    const text = `Com base nas informações fornecidas, o projeto ideal para o objetivo "${goal}" seria uma aplicação utilizando ${technologies}, voltado para um desenvolvedor ${level}. A especificação será detalhada conforme o objetivo.`;
+    const text = `Com base nas tecnologias indicadas, no seu nível profissional atual e no seu objetivo de conquistar uma vaga como desenvolvedor Java Júnior em uma fintech, o projeto ideal foi estruturado para refletir os conhecimentos exigidos e te preparar com uma experiência prática relevante.\n\n\n\nNome do projeto: FinCache - Sistema de Cache para Transações Financeiras\n\nDescrição: Um sistema de cache para armazenar e gerenciar transações financeiras em tempo real, utilizando Java para a lógica de negócios e Redis para armazenamento de dados em cache.\n\nTecnologias: Java, Redis\n\nObjetivos técnicos:\n\n- Implementar uma API RESTful em Java para gerenciar transações financeiras\n\n- Integrar o Redis como cache para armazenar transações recentes e melhorar o desempenho\n\n- Desenvolver um mecanismo de expiração de cache para garantir a consistência dos dados\n\n- Implementar um sistema de logging para monitorar transações e erros\n\n- Criar testes unitários e de integração para garantir a qualidade do código`;
     setSpec(text);
   };
 

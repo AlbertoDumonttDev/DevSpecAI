@@ -16,7 +16,7 @@ public class SpecGeneratorController {
     private SpecGeneratorService service;
 
     @PostMapping
-    public ResponseEntity<SpecResponseDTO> generateSpec(@RequestBody SpecRequestDTO request) {
+    public ResponseEntity<SpecResponseDTO> generateSpec(@RequestBody  SpecRequestDTO request) {
         SpecResponseDTO response = service.generateSpecification(request);
         return ResponseEntity.ok(response);
     }

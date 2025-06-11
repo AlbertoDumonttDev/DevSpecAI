@@ -28,6 +28,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
+  width: 100%;
 }
 
 h1 {
@@ -78,4 +79,20 @@ button:focus-visible {
   margin: 1rem auto;
   box-sizing: border-box;
   white-space: pre-line;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem 0.5rem;
+    margin: 0;
+    max-width: 100%;
+  }
 }

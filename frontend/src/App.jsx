@@ -37,9 +37,9 @@ function App() {
     setGoalError(false);
 
     const levelMap = {
-      '1': 'Júnior',
-      '2': 'Pleno', 
-      '3': 'Sênior'
+      '1': 'JUNIOR',
+      '2': 'MID', 
+      '3': 'SENIOR'
     };
 
     const requestData = {
@@ -110,7 +110,7 @@ function App() {
         )}
 
         <footer>
-          <p>⚠️ Projeto estudantil — este serviço pode estar indisponível em alguns momentos.</p>
+          <p>⚠️ Projeto pessoal — este serviço pode estar indisponível em alguns momentos.</p>
         </footer>
       </div>
     </>

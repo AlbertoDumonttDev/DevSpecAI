@@ -1,11 +1,17 @@
-# devSpecIA (Spring Boot API + React Frontend)
+# DevSpecAI (Spring Boot API + React Frontend)
 
-devSpecIA is a full-stack project designed to help users generate project specifications tailored to their professional level, preferred technologies, and career goals. The backend is built using Java with Spring Boot, and it integrates with the [Cohere AI API](https://cohere.com/) to generate AI-driven project specs. The frontend, developed in React.js, consumes this API and delivers a clean user interface.
+DevSpecAI is a full-stack project designed to help users generate project specifications tailored to their professional level, preferred technologies, and career goals. The backend is built using Java with Spring Boot, and it integrates with the [Cohere AI API](https://cohere.com/) to generate AI-driven project specs. The frontend, developed in React.js, consumes this API and delivers a clean user interface.
 
 This project was mainly focused on backend architecture and learning modern Java/Spring Boot concepts, while also deploying a production-ready full-stack app using Docker and Render.
 
 ### 🌐 Live Demo:
 [https://devspecai.onrender.com/](https://devspecai.onrender.com/)
+
+
+⚠️ Live Demo Availability Notice: Please note that the live demo hosted on Render might experience occasional downtime, especially during periods of inactivity or due to Render's free-tier limitations.
+If the demo appears unavailable, you can run the project locally by following the instructions below.
+
+Thanks for understanding!
 
 ---
 
@@ -64,7 +70,7 @@ Generates a project specification based on the user's profile.
 
 ```json
 {
-  "technologies": Java, springboot and react.js
+  "technologies": "Java, springboot and react.js",
   "professionalLevel": ["JUNIOR", "MID", "SENIOR"],
   "careerObjective": "I want to learn how to build APIs and deploy full-stack applications."
 }
@@ -82,7 +88,7 @@ Generates a project specification based on the user's profile.
 
 ```json
 {
-  "specification": "As a Junior developer wanting to build APIs using Java and Spring Boot..."
+  "spec": "As a Junior developer wanting to build APIs using Java and Spring Boot..."
 }
 ```
 
@@ -96,7 +102,6 @@ Generates a project specification based on the user's profile.
   "message": "Invalid value for field 'professionalLevel'. Allowed values: JUNIOR, MID, SENIOR"
 }
 ```
-
 ---
 
 ### ✅ Learning Goals Behind This Project
@@ -115,9 +120,8 @@ Generates a project specification based on the user's profile.
 ### 📡 Deployment
 The app is deployed on Render:
 
-Backend: https://backend-devspecai.onrender.com/
-
-Frontend: https://devspecai.onrender.com/
+- Backend: https://backend-devspecai.onrender.com/
+- Frontend: https://devspecai.onrender.com/
 
 ---
 
@@ -132,8 +136,6 @@ Frontend: https://devspecai.onrender.com/
 ## 🏃 Running Locally (Without Docker)
 
 If you prefer to run the project locally without Docker, follow these steps:
-
----
 
 ### Backend (Spring Boot)
 
@@ -158,7 +160,7 @@ By default, the backend runs on:
 
 http://localhost:8080/
 
----
+
 ### Frontend (React.js)
 
 **Prerequisites:**

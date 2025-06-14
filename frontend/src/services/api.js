@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://backend-devspecai.onrender.com/api/spec',
+  baseURL: 'https://backend-devspecai.onrender.com',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',

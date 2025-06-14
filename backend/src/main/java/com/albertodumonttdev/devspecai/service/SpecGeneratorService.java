@@ -2,6 +2,7 @@ package com.albertodumonttdev.devspecai.service;
 
 import com.albertodumonttdev.devspecai.dto.SpecRequestDTO;
 import com.albertodumonttdev.devspecai.dto.SpecResponseDTO;
+import com.albertodumonttdev.devspecai.exception.RequestException;
 import com.albertodumonttdev.devspecai.utils.PromptUtil;
 import com.albertodumonttdev.devspecai.utils.ResponseFormatter;
 import org.springframework.stereotype.Service;
@@ -17,19 +18,24 @@ public class SpecGeneratorService {
     private String apiKey;
 
     public SpecResponseDTO generateSpecification(SpecRequestDTO request) {
-
         String prompt = PromptUtil.buildPrompt(request);
+
         Cohere cohere = Cohere.builder()
-        .token(apiKey)
-        .clientName("snippet")
-        .build();
+                .token(apiKey)
+                .clientName("snippet")
+                .build();
 
-        NonStreamedChatResponse response = cohere.chat(
-                ChatRequest.builder()
-                        .message(prompt)
-                        .build()
-        );
+        try {
+            NonStreamedChatResponse response = cohere.chat(
+                    ChatRequest.builder()
+                            .message(prompt)
+                            .build()
+            );
 
-        return new SpecResponseDTO(ResponseFormatter.formatTextWithNewlines(response.getText()));
+            return new SpecResponseDTO(ResponseFormatter.formatTextWithNewlines(response.getText()));
+
+        } catch (Exception ex) {
+            throw new RequestException("Error while calling Cohere API: " + ex.getMessage(), "ExternalApiError");
+        }
     }
 }

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/spec")
 @CrossOrigin(origins = {
         "http://localhost:5173",
-        "https://devspecai.onrender.com",
         "http://devspecai.onrender.com"
 })
 public class SpecGeneratorController {

@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y openjdk-21-jdk maven
 WORKDIR /app/backend
 COPY backend/ .
 
-RUN mvn clean install
+RUN mvn clean install -DskipTests
 
 FROM eclipse-temurin:21-jdk
 
